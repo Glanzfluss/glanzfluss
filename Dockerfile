@@ -7,6 +7,10 @@ COPY package.json pnpm-lock.yaml ./
 RUN npm install -g pnpm
 RUN pnpm install
 
+# Build-ARG für API-Key
+ARG RESEND_API_KEY
+ENV RESEND_API_KEY=$RESEND_API_KEY
+
 COPY . .
 RUN pnpm run build
 
