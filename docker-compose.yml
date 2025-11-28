@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   web:
-    image: deinusername/glanzfluss:latest
+    image: Glanzfluss/glanzfluss:latest
     restart: always
     ports:
       - "3000:3000"
