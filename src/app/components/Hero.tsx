@@ -33,7 +33,7 @@ export default function Hero() {
         playsInline
         poster="/poster.jpg"
       >
-        <source src="videos/BMW_CINEMATIC_VIDEO.mp4" type="video/mp4" />
+        <source src="../../../../home/videosBMW_CINEMATIC_VIDEO.mp4" type="video/mp4" />
       </video>
 
       <div className={styles.overlay}></div>
@@ -54,7 +54,7 @@ export default function Hero() {
         
         {/* H1 zerlegt in animierte motion.h1 */}
         <motion.h1 variants={itemVariants}>
-                        <span className={'text-[#a3e635]'}>Glanzfluss Test</span> Mobile Detailing
+                        <span className={'text-[#a3e635]'}>Glanzfluss</span> Mobile Detailing
         </motion.h1>
         
         {/* P zerlegt in animierte motion.p */}
