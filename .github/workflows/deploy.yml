@@ -18,10 +18,10 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASS }}
 
       - name: Build Docker Image
-        run: docker build -t deinusername/glanzfluss:latest .
+        run: docker build -t glanzfluss/glanzfluss:latest .
 
       - name: Push Image
-        run: docker push deinusername/glanzfluss:latest
+        run: docker push glanzfluss/glanzfluss:latest
 
       - name: Deploy to VPS
         uses: appleboy/ssh-action@v0.1.10
