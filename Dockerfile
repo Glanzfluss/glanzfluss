@@ -7,10 +7,6 @@ COPY package.json pnpm-lock.yaml ./
 RUN npm install -g pnpm
 RUN pnpm install
 
-# Build-Argument für GitHub Secret
-ARG RESEND_API_KEY
-ENV RESEND_API_KEY=$RESEND_API_KEY
-
 COPY . .
 RUN pnpm run build
 
@@ -29,6 +25,6 @@ COPY --from=builder /app/next.config.js ./next.config.js
 
 EXPOSE 3000
 
-ENV RESEND_API_KEY=$RESEND_API_KEY
+ENV RESEND_API_KEY=""
 
 CMD ["pnpm", "start"]
