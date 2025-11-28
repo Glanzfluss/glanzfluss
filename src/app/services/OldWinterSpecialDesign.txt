@@ -1,0 +1,73 @@
+                {/* WINTER SPECIAL PROMO */}
+        <section className="relative bg-gray-800 border border-gray-700 rounded-2xl max-w-6xl mx-auto my-20 py-16 px-8 overflow-hidden">
+
+          {/* Weihnachts-Girlande über die gesamte Breite */}
+          <div className="absolute top-0 left-0 w-full -translate-y-1 z-10">
+            <svg viewBox="0 0 1200 70" fill="none" className="w-full h-auto">
+              {/* Girlandenlinie */}
+              <path d="M0 10 C300 80 900 80 1200 10" stroke="#a3e635" strokeWidth="4" fill="none" />
+
+              {/* Weihnachtskugeln */}
+              <circle cx="100" cy="30" r="8" fill="#ef4444" className="animate-pulse" />   {/* rot */}
+              <circle cx="250" cy="45" r="7" fill="#22c55e" className="animate-pulse delay-150" /> {/* grün */}
+              <circle cx="400" cy="35" r="9" fill="#facc15" className="animate-pulse delay-300" /> {/* gold */}
+              <circle cx="550" cy="35" r="8" fill="#ef4444" className="animate-pulse delay-450" />
+              <circle cx="700" cy="45" r="7" fill="#22c55e" className="animate-pulse delay-600" />
+              <circle cx="850" cy="30" r="9" fill="#facc15" className="animate-pulse delay-750" />
+              <circle cx="1000" cy="40" r="8" fill="#ffffff" className="animate-pulse delay-900" /> {/* weiß */}
+              <circle cx="1150" cy="35" r="7" fill="#ef4444" className="animate-pulse delay-1050" />
+            </svg>
+          </div>
+
+        <div className="absolute inset-0 bg-gradient-to-tr from-gray-800 via-gray-900 to-black opacity-90"></div>
+        <div className="absolute -top-16 -left-16 w-60 h-60 bg-[#a3e635] rounded-full blur-3xl opacity-10"></div>
+        <div className="absolute bottom-0 right-0 w-72 h-72 bg-[#a3e635] rounded-full blur-3xl opacity-10"></div>
+
+        <div className="relative z-10 text-center">
+
+            <div className="inline-flex items-center px-4 py-1 mb-4 mt-6 rounded-full bg-gray-700 text-sm font-semibold uppercase tracking-widest">
+            ❄️ Winteraktion
+            </div>
+
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+            Innenraumpflege + Scheibenversiegelung
+            </h2>
+            <p className="text-gray-400 max-w-3xl mx-auto mb-10 text-lg">
+            Perfekter Schutz für kalte Tage: Sauberkeit, Pflege und klare Sicht bei jedem Wetter –  
+            dank hochwertiger Koch Chemie Innenreinigung & hydrophober Glasversiegelung.
+            </p>
+
+            {/* NEUER TEXT – Emotionale Einleitung */}
+            <p className="text-gray-300 max-w-3xl mx-auto mb-10 text-lg italic">
+            Kennst du es auch? Es ist kalt und gefroren draußen, und du musst in der Kälte stehen, um deine Autoscheiben freizukratzen?  
+            Dann ist unsere <span className={TEXT}>Scheibenversiegelung</span> im Winteraktions-Paket genau das Richtige für dich.  
+            Damit wird das lästige Kratzen deutlich einfacher – und in den meisten Fällen bildet sich kaum noch Eis.
+            </p>
+
+            <div className="relative bg-gray-900 border border-gray-700 rounded-2xl shadow-xl p-8 text-left max-w-3xl mx-auto">
+            {/* Badge rechts oben über der Feature-Liste */}
+            <div className="absolute -top-3 right-3 px-3 py-1 rounded-full bg-[#a3e635] text-black text-xs font-bold uppercase tracking-widest shadow-lg">
+                Scheibenversiegelung kostenlos
+            </div>
+
+            <ul className="space-y-3 text-gray-300 text-lg">
+                <li className="flex items-start"><CheckCircle className="w-5 h-5 mr-2 text-[#a3e635]" /> Premium-Innenraumreinigung mit Koch Chemie Produkten</li>
+                <li className="flex items-start"><CheckCircle className="w-5 h-5 mr-2 text-[#a3e635]" /> Farbauffrischende Pflege für längere Sauberkeit & Schutz</li>
+                <li className="flex items-start"><CheckCircle className="w-5 h-5 mr-2 text-[#a3e635]" /> Außen: Hochwertige Scheibenversiegelung mit Fusso-Technologie</li>
+                <li className="flex items-start"><CheckCircle className="w-5 h-5 mr-2 text-[#a3e635]" /> Schützt bis zu 12 Monate vor Frost, Eis, Schmutz & Regen</li>
+            </ul>
+
+            <div className="text-center mt-10">
+                <p className="text-sm text-gray-400 mb-3 uppercase tracking-wide">
+                Winteraktion – Nur für kurze Zeit zum gleichen Preis wie Premium!
+                </p>
+                <Link
+                href="/contact"
+                className={`inline-block py-3 px-8 rounded-xl font-bold ${ACCENT} text-black hover:opacity-90 transition`}
+                >
+                Jetzt Winterpaket anfragen
+                </Link>
+            </div>
+            </div>
+        </div>
+        </section>

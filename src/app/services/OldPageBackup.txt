@@ -1,0 +1,320 @@
+'use client';
+
+import React from 'react';
+import Navbar from '../components/Navbar';
+import { CheckCircle, Sparkles, Droplets, Car, ShieldCheck, Wand2, Snowflake } from 'lucide-react';
+import Link from 'next/link';
+import Footer from '../components/Footer'
+
+const ServicesPage = () => {
+  const ACCENT_COLOR = 'bg-[#a3e635]';
+  const TEXT_COLOR = 'text-[#a3e635]';
+
+  const services = [
+    {
+      id: 'interior',
+      icon: <Sparkles className="h-10 w-10 text-[#a3e635]" />,
+      title: 'Interior Detailing',
+      description:
+        'Gründliche Innenraumreinigung inklusive Sitze, Teppiche, Armaturen, Lüftung und Kofferraum. Ideal für ein sauberes, frisches Fahrgefühl.',
+      features: [
+        'Gründliche Staubentfernung',
+        'Nassreinigung der Teppiche & Sitze',
+        'Innenraumdesinfektion',
+        'Lederpflege (falls vorhanden)',
+        'Scheibenreinigung von innen',
+      ],
+      price: 'ab 59€',
+      duration: 'ca. 2 Stunden',
+      comingSoon: false,
+    },
+    {
+      id: 'exterior',
+      icon: <Droplets className="h-10 w-10 text-gray-500" />,
+      title: 'Exterior Detailing',
+      description:
+        'Umfassende Außenreinigung mit Lackpflege, Felgenreinigung und Schutzversiegelung. Dein Auto glänzt wie neu!',
+      features: [
+        'Handwäsche mit PH-neutralem Shampoo',
+        'Felgen- & Reifenpflege',
+        'Lackreinigung & Glanzpolitur',
+        'Wachs- oder Keramikversiegelung',
+        'Scheibenreinigung außen',
+      ],
+      price: 'ab 79€',
+      duration: 'ca. 2 Stunden',
+      comingSoon: true,
+    },
+    {
+      id: 'full',
+      icon: <Car className="h-10 w-10 text-gray-500" />,
+      title: 'Full Detail',
+      description:
+        'Das Komplettpaket – Innen & Außen in Perfektion. Für alle, die ihr Fahrzeug rundum wie neu erleben wollen.',
+      features: [
+        'Innenraum & Außenpflege inklusive',
+        'Lackpolitur & Schutzversiegelung',
+        'Intensive Fleckenentfernung',
+        'Leder- und Kunststoffpflege',
+        'Felgenreinigung & Reifendressing',
+      ],
+      price: 'ab 129€',
+      duration: 'ca. 3 Stunden',
+      comingSoon: true,
+    },
+  ];
+
+  const addons = [
+    {
+      id: 'ceramic',
+      icon: <ShieldCheck className="h-10 w-10 text-gray-500" />,
+      title: 'Keramikversiegelung',
+      description:
+        'Langzeitlackschutz mit hydrophobem Effekt – sorgt für intensiven Glanz und leichtere Reinigung.',
+      comingSoon: true,
+    },
+    {
+      id: 'polish',
+      icon: <Wand2 className="h-10 w-10 text-gray-500" />,
+      title: 'Lackpolitur',
+      description:
+        'Entfernung feiner Kratzer und Hologramme für eine spiegelglatte Oberfläche.',
+      comingSoon: true,
+    },
+  ];
+
+  return (
+    <>
+      <Navbar />
+      <div className="min-h-screen pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gray-900 text-white">
+        {/* 🧊 Winter Angebot */}
+        <section className="relative mb-24 bg-gray-800 border border-gray-700 rounded-2xl shadow-xl p-10 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-tr from-gray-800 via-gray-900 to-black opacity-90"></div>
+        <div className="absolute -top-20 -left-20 w-60 h-60 bg-[#a3e635] rounded-full blur-3xl opacity-10"></div>
+        <div className="absolute bottom-0 right-0 w-72 h-72 bg-[#a3e635] rounded-full blur-3xl opacity-10"></div>
+
+        <div className="relative z-10 max-w-5xl mx-auto text-center">
+            <div className="flex justify-center mb-4">
+            <Snowflake className="w-12 h-12 text-[#a3e635]" />
+            </div>
+            <h2 className={`text-sm tracking-widest uppercase font-bold ${TEXT_COLOR}`}>
+            Winter Angebot
+            </h2>
+            <h3 className="text-4xl md:text-5xl font-extrabold mt-2 mb-6 leading-tight">
+            Das exklusive Winterpflege-Paket
+            </h3>
+            <p className="text-gray-400 max-w-3xl mx-auto text-lg mb-10">
+            Perfekte Pflege und Schutz für dein Fahrzeug in der kalten Jahreszeit –  
+            mit einer gründlichen Innenraumreinigung und innovativer Scheibenversiegelung gegen Frost und Eis.
+            </p>
+
+            <div className="bg-gray-900 border border-gray-700 rounded-2xl shadow-xl p-8 text-left max-w-3xl mx-auto">
+            <h4 className="text-2xl font-bold mb-4 text-[#a3e635]">
+                Enthaltene Leistungen:
+            </h4>
+            <ul className="space-y-3 text-gray-300 text-lg">
+                <li className="flex items-start">
+                <CheckCircle className="w-5 h-5 mr-2 text-[#a3e635] mt-1" />
+                Hochwertige Innenraumreinigung mit Koch Chemie Produkten
+                </li>
+                <li className="flex items-start">
+                <CheckCircle className="w-5 h-5 mr-2 text-[#a3e635] mt-1" />
+                Spezielle Pflegeprodukte für intensivere Farben, längere Sauberkeit und Schutz
+                </li>
+                <li className="flex items-start">
+                <CheckCircle className="w-5 h-5 mr-2 text-[#a3e635] mt-1" />
+                Premium-Scheibenversiegelung auf der Windschutzscheibe außen
+                </li>
+                <li className="flex items-start">
+                <CheckCircle className="w-5 h-5 mr-2 text-[#a3e635] mt-1" />
+                Mit innovativer Fusso-Technologie und Fluorpolymeren – Haltbarkeit bis zu 12 Monate
+                </li>
+                <li className="flex items-start">
+                <CheckCircle className="w-5 h-5 mr-2 text-[#a3e635] mt-1" />
+                Schützt effektiv vor Regen, Frost, Eis und Schmutzanhaftungen
+                </li>
+                <li className="flex items-start">
+                <CheckCircle className="w-5 h-5 mr-2 text-[#a3e635] mt-1" />
+                Im Winter erleichtert sie das Entfernen von Reif und Eis – oft kein Frost mehr auf der Scheibe
+                </li>
+            </ul>
+
+            <div className="mt-8 text-center">
+                <p className="text-xl font-semibold mb-2">
+                <span className={TEXT_COLOR}>ab 89€</span> • ca. 2,5 Stunden
+                </p>
+                <Link
+                href="/contact"
+                className={`inline-block py-3 px-8 rounded-xl font-bold ${ACCENT_COLOR} text-black hover:opacity-90 transition`}
+                >
+                Jetzt Winterpaket buchen
+                </Link>
+            </div>
+            </div>
+        </div>
+        </section>
+        {/* Hauptleistungen */}
+        <div className="max-w-7xl mx-auto text-center mb-16">
+          <h2 className={`text-sm tracking-widest uppercase font-bold ${TEXT_COLOR}`}>
+            Unsere Leistungen
+          </h2>
+          <h1 className="text-5xl md:text-6xl font-extrabold mt-2 mb-4 leading-tight">
+            Professionelle Fahrzeugpflege
+          </h1>
+          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+            Wähle das passende Paket für dein Fahrzeug – wir bringen deinen Wagen zum Strahlen.
+          </p>
+        </div>
+
+        {/* Hauptpakete */}
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto mb-24">
+          {services.map((service) => (
+            <div
+              key={service.id}
+              className={`relative bg-gray-800 border border-gray-700 rounded-2xl shadow-xl p-8 flex flex-col items-center text-center transition duration-300 ${
+                service.comingSoon ? 'opacity-70' : 'hover:scale-[1.02]'
+              }`}
+            >
+              {service.comingSoon && (
+                <div className="absolute top-4 right-4 bg-gray-700 text-xs text-gray-300 px-3 py-1 rounded-full uppercase tracking-wider">
+                  Coming Soon
+                </div>
+              )}
+              <div className="mb-6">{service.icon}</div>
+              <h3 className={`text-2xl font-bold mb-3 ${service.comingSoon ? 'text-gray-400' : ''}`}>
+                {service.title}
+              </h3>
+              <p className={`mb-6 ${service.comingSoon ? 'text-gray-500' : 'text-gray-400'}`}>
+                {service.description}
+              </p>
+
+              <ul className="text-left space-y-2 mb-6">
+                {service.features.map((f, i) => (
+                  <li key={i} className="flex items-center text-gray-300">
+                    <CheckCircle className="h-4 w-4 mr-2 text-[#a3e635]" /> {f}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-auto">
+                <p className="font-semibold text-lg mb-1">
+                  <span className={TEXT_COLOR}>{service.price}</span>
+                </p>
+                <p className="text-sm text-gray-400 mb-6">{service.duration}</p>
+
+                {!service.comingSoon ? (
+                  <Link
+                    href="/contact"
+                    className={`inline-block py-3 px-8 rounded-xl font-bold ${ACCENT_COLOR} text-black hover:opacity-90 transition`}
+                  >
+                    Jetzt buchen
+                  </Link>
+                ) : (
+                  <button
+                    disabled
+                    className="inline-block py-3 px-8 rounded-xl font-bold bg-gray-700 text-gray-400 cursor-not-allowed"
+                  >
+                    Nicht verfügbar
+                  </button>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Add-ons */}
+        <div className="max-w-7xl mx-auto text-center mb-12">
+          <h2 className={`text-sm tracking-widest uppercase font-bold ${TEXT_COLOR}`}>
+            Add-ons
+          </h2>
+          <h3 className="text-4xl md:text-5xl font-extrabold mt-2 mb-4 leading-tight">
+            Zusätzliche Leistungen
+          </h3>
+          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+            Ergänze dein Detailing mit hochwertigen Zusatzoptionen für maximalen Schutz und Glanz.
+          </p>
+        </div>
+
+        <div className="grid gap-10 md:grid-cols-2 max-w-5xl mx-auto">
+          {addons.map((addon) => (
+            <div
+              key={addon.id}
+              className="bg-gray-800 border border-gray-700 rounded-2xl shadow-xl p-8 flex flex-col items-center text-center opacity-70 relative"
+            >
+              <div className="absolute top-4 right-4 bg-gray-700 text-xs text-gray-300 px-3 py-1 rounded-full uppercase tracking-wider">
+                Coming Soon
+              </div>
+              <div className="mb-6">{addon.icon}</div>
+              <h3 className="text-2xl font-bold mb-3 text-gray-400">{addon.title}</h3>
+              <p className="text-gray-500">{addon.description}</p>
+            </div>
+          ))}
+        </div>
+        {/* Warum Glanzfluss */}
+        <section className="relative mt-32 bg-gray-800 border border-gray-700 rounded-2xl py-20 px-6 sm:px-10 lg:px-16 overflow-hidden">
+        {/* Hintergrundeffekt */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-gray-800 via-gray-900 to-black opacity-90"></div>
+        <div className="absolute -top-20 -left-20 w-60 h-60 bg-[#a3e635] rounded-full blur-3xl opacity-10"></div>
+        <div className="absolute bottom-0 right-0 w-72 h-72 bg-[#a3e635] rounded-full blur-3xl opacity-10"></div>
+
+        {/* Inhalt */}
+        <div className="relative z-10 max-w-6xl mx-auto text-center">
+            <h2 className="text-sm tracking-widest uppercase font-bold text-[#a3e635] mb-3">
+            Was Glanzfluss Mobile Detailing anders macht?
+            </h2>
+            <h3 className="text-4xl sm:text-5xl font-extrabold mb-10 leading-tight">
+            Premium Pflege – mobil, professionell, kompromisslos
+            </h3>
+
+            {/* Vorteile */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 text-left">
+            {[
+                'Professionelle Außenreinigung direkt bei dir Zuhause',
+                'Sanfte & gründliche Pflege per Hand',
+                'Keine Kratzer – nur Premium-Produkte!',
+                'Ideal für Leasingrückgaben, Familienautos oder Neuwagen-Erlebnis',
+                'Schnelle Terminvereinbarung per WhatsApp',
+                'Klare Preise & individuelle Reinigungspakete',
+                '100 % mobil – keine Werkstatt, kein Aufwand, kein Warten',
+            ].map((item, i) => (
+                <div key={i} className="flex items-start space-x-3">
+                <CheckCircle className="w-6 h-6 text-[#a3e635] flex-shrink-0 mt-1" />
+                <p className="text-gray-300 text-lg">{item}</p>
+                </div>
+            ))}
+            </div>
+
+            {/* Info-Box */}
+            <div className="bg-gray-900 border border-gray-700 rounded-2xl shadow-xl p-10 text-left max-w-4xl mx-auto">
+            <h4 className="text-2xl font-bold mb-4 text-[#a3e635]">
+                Für optimale Sauberkeit:
+            </h4>
+            <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                Wir arbeiten mit leistungsstarken Profi-Nasssaugern und einem Tornador-Druckluftaufsatz – 
+                für maximale Materialschonung und effektive Tiefenreinigung selbst in schwer erreichbaren Bereichen.
+            </p>
+            <h4 className="text-2xl font-bold mb-3 text-[#a3e635]">Das bieten wir:</h4>
+            <p className="text-gray-400 text-lg leading-relaxed mb-4">
+                Wir kommen zu dir nach Hause, auf deinen Stellplatz oder in deine Einfahrt – 
+                unsere mobile Dienstleistung ist speziell auf die professionelle Reinigung bei dir vor Ort ausgerichtet.
+            </p>
+            <div className="border-t border-gray-700 pt-6">
+                <h5 className="text-xl font-semibold mb-2 text-white">Du brauchst nur:</h5>
+                <ul className="space-y-2 text-gray-300 text-lg">
+                <li>• Dein Fahrzeug</li>
+                <li>• Wasseranschluss / Strom</li>
+                </ul>
+                <p className="text-gray-400 mt-4">
+                Alles Weitere – Reinigungsgeräte, Pflegemittel und Erfahrung – bringt dein professioneller Autoaufbereiter mit.
+                </p>
+            </div>
+            </div>
+        </div>
+        </section>
+      </div>
+      <Footer />
+    </>
+  );
+};
+
+export default ServicesPage;

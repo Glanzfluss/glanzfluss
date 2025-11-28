@@ -1,0 +1,201 @@
+'use client';
+
+import React from 'react';
+import { motion } from 'framer-motion';
+import Navbar from '../components/Navbar';
+import { Sparkles, ShieldCheck, Handshake, Award } from 'lucide-react';
+import Footer from '../components/Footer'
+
+const AboutPage = () => {
+  const ACCENT_COLOR = 'bg-[#a3e635]';
+  const TEXT_COLOR = 'text-[#a3e635]';
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
+  const features = [
+    {
+      icon: <Sparkles className="h-10 w-10 text-[#a3e635]" />,
+      title: 'Mobile Fahrzeugpflege',
+      text: 'Wir bringen Glanz direkt zu dir nach Hause oder an deinen Arbeitsplatz – flexibel, professionell und zuverlässig.',
+    },
+    {
+      icon: <ShieldCheck className="h-10 w-10 text-[#a3e635]" />,
+      title: 'Premium-Produkte',
+      text: 'Für beste Ergebnisse setzen wir ausschließlich auf Pflegeprodukte der deutschen Marke Koch Chemie – Qualität, die überzeugt.',
+    },
+    {
+      icon: <Handshake className="h-10 w-10 text-[#a3e635]" />,
+      title: 'Vertrauen & Qualität',
+      text: 'Klare Kommunikation, faire Preise und Präzision im Detail – unser Anspruch bei jedem Fahrzeug.',
+    },
+  ];
+
+  return (
+    <>
+      <Navbar />
+
+      <div className="min-h-screen bg-gray-900 text-white pt-28 pb-20 px-6 sm:px-8 lg:px-12 overflow-hidden">
+
+        {/* Intro */}
+        <motion.section
+          className="max-w-5xl mx-auto text-center mb-20"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+        >
+          <h2 className={`text-xs sm:text-sm tracking-widest uppercase font-bold ${TEXT_COLOR}`}>
+            Über uns
+          </h2>
+          <h1 className="text-4xl sm:text-5xl font-extrabold mt-3 mb-4 leading-tight">
+            Wir sind Glanzfluss Mobile Detailing
+          </h1>
+          <p className="text-gray-400 max-w-3xl mx-auto text-lg sm:text-xl">
+            Mobile Fahrzeugpflege auf höchstem Niveau – direkt bei dir Zuhause in Warburg und Umgebung.  
+            Egal ob Leasingrückgabe, Verkaufsaufbereitung oder Alltagsreinigung – wir bringen den Showroom-Glanz zu dir.
+          </p>
+        </motion.section>
+
+        {/* Geschichte */}
+        <section className="max-w-6xl mx-auto mb-24 grid md:grid-cols-2 gap-12 items-center">
+          <motion.div
+            className="space-y-6 text-center md:text-left"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
+            <h2 className={`text-2xl sm:text-3xl font-bold ${TEXT_COLOR}`}>
+              Unsere Geschichte
+            </h2>
+            <p className="text-gray-300 leading-relaxed text-base sm:text-lg">
+              Glanzfluss wurde gegründet, um Fahrzeugpflege neu zu denken – mobil, flexibel und kompromisslos hochwertig.
+              Was als Leidenschaft für saubere Autos begann, entwickelte sich zu einem professionellen mobilen Service
+              für Warburg und Umgebung.
+            </p>
+            <p className="text-gray-400 leading-relaxed text-base sm:text-lg">
+              Unser Ziel: Autopflege so bequem und hochwertig wie möglich zu machen. 
+              Mit Profi-Equipment und Premium-Produkten sorgen wir für effektive Reinigung, Materialschonung und langanhaltenden Glanz.
+            </p>
+            <p className="text-gray-400 leading-relaxed text-base sm:text-lg">
+              Verlässlich, professionell und mit höchstem Qualitätsanspruch – direkt bei dir Zuhause.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="relative w-full"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
+            <div className="absolute inset-0 bg-[#a3e635] rounded-2xl opacity-20 blur-2xl"></div>
+            <img
+              src="/pictures/Vorstellungsshowbild.png"
+              alt="Fahrzeugpflege Glanzfluss"
+              className="relative z-10 w-full rounded-2xl shadow-2xl border border-gray-700 object-cover max-h-[450px]"
+            />
+          </motion.div>
+        </section>
+
+        {/* Werte / Features */}
+        <section className="bg-gray-800 border border-gray-700 rounded-2xl py-16 px-6 sm:px-10 lg:px-14 mb-24">
+          <motion.div
+            className="text-center max-w-3xl mx-auto mb-14"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
+            <h2 className={`text-xs sm:text-sm tracking-widest uppercase font-bold ${TEXT_COLOR}`}>
+              Unsere Werte
+            </h2>
+            <h3 className="text-3xl sm:text-4xl font-extrabold mt-3 mb-4 leading-tight">
+              Wofür wir stehen
+            </h3>
+            <p className="text-gray-400 text-base sm:text-lg">
+              Wir stehen für ehrliche Arbeit, präzise Ausführung und Leidenschaft im Detail – 
+              weil dein Fahrzeug das Beste verdient.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                className="bg-gray-900 border border-gray-700 rounded-2xl shadow-xl p-8 text-center hover:scale-[1.02] transition duration-300"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeInUp}
+              >
+                <div className="flex justify-center mb-5">{feature.icon}</div>
+                <h4 className="text-xl font-bold mb-3">{feature.title}</h4>
+                <p className="text-gray-400 text-base">{feature.text}</p>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* Team */}
+        <motion.section
+          className="max-w-3xl mx-auto text-center border-b border-gray-800 pt-20 pb-20 mb-20"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+        >
+          <div className="flex flex-col items-center space-y-6">
+            <div className="relative">
+              <div className="absolute inset-0 bg-[#a3e635] rounded-full blur-xl opacity-20"></div>
+              <img
+                src="/pictures/Vorstellungsbild.jpg"
+                alt="Inhaber Glanzfluss"
+                className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-full object-cover shadow-xl border border-gray-700 z-10"
+              />
+            </div>
+            <div className="text-center">
+              <h3 className="text-2xl sm:text-3xl font-bold mb-2">Philipp Dierkes</h3>
+              <p className={`${TEXT_COLOR} font-semibold mb-3 text-base sm:text-lg`}>
+                Inhaber & Fahrzeugpflege
+              </p>
+              <p className="text-gray-400 text-base sm:text-lg leading-relaxed max-w-xl mx-auto">
+                Persönlicher Service, höchste Qualität und echte Leidenschaft – das ist Glanzfluss.  
+                Wir stehen für professionelle Fahrzeugpflege mit Herz, Erfahrung und Präzision.
+              </p>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* Versprechen */}
+        <motion.section
+          className="max-w-4xl mx-auto text-center mb-32"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+        >
+          <Award className="h-12 w-12 text-[#a3e635] mx-auto mb-6" />
+          <h3 className="text-3xl sm:text-4xl font-extrabold mb-4">Unser Versprechen</h3>
+          <p className="text-gray-400 text-lg sm:text-xl mb-8 max-w-2xl mx-auto">
+            Wir behandeln jedes Fahrzeug, als wäre es unser eigenes.  
+            Mit Leidenschaft, Präzision und hochwertigen Pflegeprodukten sorgen wir für makellose Ergebnisse – jedes Mal.
+          </p>
+          <a
+            href="/contact"
+            className={`inline-block py-3 px-8 rounded-xl font-bold ${ACCENT_COLOR} text-black hover:opacity-90 transition text-lg`}
+          >
+            Jetzt Termin vereinbaren
+          </a>
+        </motion.section>
+
+      </div>
+      <Footer />
+    </>
+  );
+};
+
+export default AboutPage;

@@ -1,0 +1,170 @@
+'use client';
+
+import React from 'react';
+import Navbar from '../components/Navbar';
+import { motion } from 'framer-motion';
+import { CheckCircle } from 'lucide-react';
+import Footer from '../components/Footer'
+
+const videos = [
+  { id: 1, title: 'VW Golf Vorher-Nachher', src: '/videos/vw-golf.mp4' },
+  { id: 2, title: 'BMW X5 Aufbereitung', src: '/videos/bmw-x5.mp4' },
+  { id: 3, title: 'Familienwagen Innenraum', src: '/videos/family-car.mp4' },
+  { id: 4, title: 'Audi A4 Premium Clean', src: '/videos/audi-a4.mp4' },
+  { id: 5, title: 'Leasingrückgabe Mercedes', src: '/videos/mercedes.mp4' },
+];
+
+const InsightsPage = () => {
+  const ACCENT_COLOR = '#a3e635';
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
+  return (
+    <>
+      <Navbar />
+      <main className="relative bg-gray-900 text-white overflow-x-hidden">
+
+        {/* Intro / Teaser */}
+        <section className="relative py-28 flex flex-col items-center justify-center overflow-hidden mt-10">
+          <span className="absolute w-72 h-72 bg-[#a3e635] rounded-full blur-3xl opacity-10 animate-pulse -top-24 -left-24"></span>
+          <span className="absolute w-60 h-60 bg-[#a3e635] rounded-full blur-2xl opacity-10 animate-pulse top-32 right-16"></span>
+
+          <motion.div
+            className="relative z-10 text-center px-6 max-w-3xl"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
+            <h1 className="text-5xl sm:text-6xl font-extrabold mb-6">
+              Du möchtest wissen, wie unsere Autoaufbereitung bei Glanzfluss aussieht?
+            </h1>
+            <p className="text-gray-300 text-lg sm:text-xl leading-relaxed">
+              Hier bekommst du echte Einblicke in unsere Arbeit – vom Familienwagen bis zum Leasingfahrzeug.  
+              Alles rund um Warburg:  
+              Wir kommen direkt zu dir nach Hause und sorgen dafür, dass dein Fahrzeug wieder wie neu aussieht.
+            </p>
+          </motion.div>
+        </section>
+
+        {/* Was du hier findest / Storytelling */}
+        <section className="max-w-6xl mx-auto mb-32 grid gap-10 md:grid-cols-3 px-4 sm:px-6">
+          {[
+            {
+              title: 'Echte Ergebnisse – Vorher & Nachher',
+              text: 'Erlebe, wie wir stark verschmutzte Innenräume wieder in nahezu neuwertigen Zustand bringen – mit Liebe zum Detail und sichtbarem Wow-Effekt.',
+              points: [
+                'Echte Kundenfahrzeuge statt gestellter Aufnahmen',
+                'Vom Familienwagen bis zum Premium-Leasingauto',
+              ],
+            },
+            {
+              title: 'Mobile Aufbereitung direkt bei dir',
+              text: 'Unsere Videos zeigen, wie flexibel und professionell wir arbeiten – egal ob in Warburg oder Umgebung.',
+              points: [
+                'Aufbereitung direkt vor Ort – Zuhause oder auf deinem Stellplatz',
+                'Saubere Ergebnisse ganz ohne Werkstattbesuch',
+              ],
+            },
+            {
+              title: 'Profi-Equipment in Aktion',
+              text: 'Sieh selbst, mit welchem Equipment und welchen Techniken wir den Unterschied machen.',
+              points: [
+                'Hochwertige Pflegeprodukte und professionelle Geräte',
+                'Sprühextraktionsverfahren, Hochdruckreinigungssystem und Nasssauger im Einsatz',
+              ],
+            },
+          ].map((block, idx) => (
+            <motion.div
+              key={idx}
+              className="relative bg-gray-800 rounded-3xl p-8 shadow-xl overflow-hidden flex flex-col justify-between"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: idx * 0.2 }}
+            >
+              <span className="absolute w-32 h-32 bg-[#a3e635] rounded-full blur-3xl opacity-10 -top-12 -right-12 animate-pulse"></span>
+
+              <div className="relative z-10">
+                <h3 className="text-2xl font-bold mb-3" style={{ color: ACCENT_COLOR }}>
+                  {block.title}
+                </h3>
+                <p className="text-gray-300 text-base mb-5 leading-relaxed">{block.text}</p>
+                <ul className="space-y-2 text-gray-400 text-sm">
+                  {block.points.map((point, i) => (
+                    <li key={i} className="flex items-center">
+                      <CheckCircle className="w-4 h-4 text-[#a3e635] mr-2" />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          ))}
+        </section>
+
+        {/* Video Grid – Coming Soon */}
+        <section className="max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-extrabold text-center mb-16" style={{ color: ACCENT_COLOR }}>
+            Unsere Arbeiten im Video
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {videos.map((video, idx) => (
+              <motion.div
+                key={video.id}
+                className="relative rounded-3xl shadow-2xl overflow-hidden transform-gpu opacity-70 bg-gray-800 border border-gray-700"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: idx * 0.2 }}
+                whileHover={{ scale: 1.03 }}
+              >
+                {/* Platzhalter / Coming Soon */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-center bg-black/60 backdrop-blur-sm z-10">
+                  <span className="text-[#a3e635] font-bold text-xl">Coming Soon</span>
+                  <p className="text-gray-400 text-sm mt-2">Unsere neuesten Aufbereitungen folgen bald!</p>
+                </div>
+
+                <video
+                  src={video.src}
+                  className="w-full h-64 object-cover grayscale"
+                  muted
+                  loop
+                  autoPlay
+                  playsInline
+                />
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="max-w-4xl mx-auto text-center py-20 bg-gray-800 border border-gray-700 rounded-3xl shadow-xl relative overflow-hidden mb-20">
+          <span className="absolute w-60 h-60 bg-[#a3e635] rounded-full blur-3xl opacity-10 -top-20 -left-20 animate-pulse"></span>
+          <span className="absolute w-72 h-72 bg-[#a3e635] rounded-full blur-2xl opacity-10 bottom-0 right-0 animate-pulse"></span>
+
+          <p className="text-gray-300 text-lg sm:text-xl mb-6">
+            Wenn du Fragen zu einem bestimmten Ablauf hast oder dein Fahrzeug ähnlich aufbereiten lassen möchtest –  
+            schreib uns einfach per{' '}
+            <a href="mailto:kontakt@glanzfluss.de" className="underline font-semibold text-[#a3e635]">
+              Email
+            </a>.
+          </p>
+
+          <p className="text-[#a3e635] font-bold text-xl sm:text-2xl mb-4">
+            Überzeuge dich selbst – und vielleicht ist dein Fahrzeug bald das nächste in unserem Feed!
+          </p>
+
+          <p className="text-gray-300 text-lg font-medium">Wir freuen uns auf dich!</p>
+        </section>
+
+      </main>
+      <Footer />
+    </>
+  );
+};
+
+export default InsightsPage;

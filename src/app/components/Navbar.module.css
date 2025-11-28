@@ -1,0 +1,115 @@
+/* app/components/Navbar.modules.css */ 
+
+/* === Grundlayout === */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  padding: 1rem 2rem;
+  
+  /* Dunkler, leicht durchsichtiger Hintergrund */
+  background: rgba(0, 0, 0, 0.4); 
+  /* Dies ist der Glossy-Effekt: Muss NACH background kommen */
+  backdrop-filter: blur(12px) saturate(150%);
+  
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+  /* Beim Scrollen opaker, aber der Glossy-Effekt bleibt */
+  background: rgba(0, 0, 0, 0.75); 
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px) saturate(150%); /* Beibehalten des Effekts */
+}
+
+.navContent {
+/* ... unverändert ... */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+/* ... unverändert ... */
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: white;
+}
+
+/* === Desktop Links === */
+.navLinks {
+/* ... unverändert ... */
+  display: flex;
+  gap: 2rem;
+}
+/* ... weitere .navLinks Styles unverändert ... */
+
+/* === Mobile Styles === */
+.menuButton {
+/* ... unverändert ... */
+  background: none;
+  border: none;
+  color: white;
+  display: none;
+  cursor: pointer;
+  z-index: 60;
+}
+
+/* WICHTIG: Dropdown mit identischem Glossy-Effekt */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  
+  /* HINTERGRUND (Muss zuerst kommen) */
+  background: rgba(0, 0, 0, 0.4); 
+  /* GLOSSY EFFEKT (Muss NACH background kommen) */
+  backdrop-filter: blur(12px) saturate(150%);
+  
+  overflow: hidden; 
+  
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dropdown ul {
+/* ... unverändert ... */
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 0;
+  gap: 1.2rem;
+}
+/* ... weitere .dropdown ul/a Styles unverändert ... */
+
+/* === Breakpoints === */
+@media (max-width: 768px) {
+/* ... unverändert ... */
+  .navLinks {
+    display: none;
+  }
+
+  .menuButton {
+    display: block;
+  }
+
+}
+
+/* Icon-Link optisch wie Textlinks */
+.navLinkIcon {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  padding: 0 0.5rem; /* Abstand zwischen Links */
+}
+
+.navLinkIcon:hover {
+  color: #a3e635; /* wie deine normale Hoverfarbe der Links */
+}
