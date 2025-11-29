@@ -53,7 +53,7 @@ const B2BPage = () => {
         <section
           className="relative flex flex-col items-center justify-center text-center pt-40 pb-28 px-6 bg-cover bg-center"
           style={{
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/pictures/GFWebImageB2B.png')`
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/pictures/GFWebImageB2B.WebP')`
           }}
         >
           <div className="absolute top-8 left-1/2 transform -translate-x-1/2">
