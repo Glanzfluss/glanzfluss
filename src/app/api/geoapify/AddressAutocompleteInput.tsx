@@ -12,7 +12,6 @@ const AddressAutocompleteInput: React.FC<AddressAutocompleteInputProps> = ({ val
   const [loading, setLoading] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
-  const API_KEY = process.env.NEXT_PUBLIC_GEOAPIFY_API_KEY;
   const cacheRef = useRef<{ [key: string]: any[] }>({}); // Cache für bereits abgefragte Eingaben
 
   useEffect(() => {
@@ -29,20 +28,15 @@ const AddressAutocompleteInput: React.FC<AddressAutocompleteInputProps> = ({ val
 
       setLoading(true);
       try {
-        const response = await fetch(
-          `https://api.geoapify.com/v1/geocode/autocomplete?text=${encodeURIComponent(
-            value
-          )}&limit=5&lang=de&country=de&apiKey=${API_KEY}`
-        );
+        const response = await fetch(`/api/geocode?text=${encodeURIComponent(value)}`);
         const data = await response.json();
 
         if (data.features) {
-          // Keine Filterung auf city/street, einfach alle Features mit 'formatted' nutzen
           const validAddresses = data.features.filter(
             (f: any) => f.properties && f.properties.formatted
           );
           setSuggestions(validAddresses);
-          cacheRef.current[value] = validAddresses; // Cache aktualisieren
+          cacheRef.current[value] = validAddresses;
         } else {
           setSuggestions([]);
         }
@@ -54,9 +48,9 @@ const AddressAutocompleteInput: React.FC<AddressAutocompleteInputProps> = ({ val
       }
     };
 
-    const timeoutId = setTimeout(fetchSuggestions, 500); // längeres Debounce, weniger Credits
+    const timeoutId = setTimeout(fetchSuggestions, 500);
     return () => clearTimeout(timeoutId);
-  }, [value, API_KEY]);
+  }, [value]);
 
   const handleSelect = (formattedAddress: string) => {
     onChange(formattedAddress);
