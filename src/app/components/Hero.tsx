@@ -33,7 +33,7 @@ export default function Hero() {
         playsInline
         poster="/poster.jpg"
       >
-        <source src="../../../../home/videos/BMW_CINEMATIC_VIDEO.mp4" type="video/mp4" />
+        <source src="/videos/BMW_CINEMATIC_VIDEO.mp4" type="video/mp4" />
       </video>
 
       <div className={styles.overlay}></div>
