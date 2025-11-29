@@ -8,6 +8,11 @@ RUN npm install -g pnpm
 RUN pnpm install
 
 COPY . .
+
+# Build-Arg für Geoapify Key
+ARG NEXT_PUBLIC_GEOAPIFY_API_KEY
+ENV NEXT_PUBLIC_GEOAPIFY_API_KEY=$NEXT_PUBLIC_GEOAPIFY_API_KEY
+
 RUN pnpm run build
 
 # --- Production Stage ---

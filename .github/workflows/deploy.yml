@@ -27,6 +27,7 @@ jobs:
         run: |
           docker build --pull \
             --build-arg RESEND_API_KEY=${{ secrets.RESEND_API_KEY }} \
+            --build-arg NEXT_PUBLIC_GEOAPIFY_API_KEY=${{ secrets.NEXT_PUBLIC_GEOAPIFY_API_KEY }} \
             -t glanzfluss/glanzfluss:latest .
 
       # 4️⃣ Push Image to Docker Hub
