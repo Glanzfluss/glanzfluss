@@ -7,32 +7,33 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
+      # 1️⃣ Checkout Code + LFS
       - name: Checkout
         uses: actions/checkout@v3
         with:
           lfs: true
 
-      - name: Setup Git LFS
-        run: |
-          git lfs install
-          git lfs pull
-
+      # 2️⃣ Log in to Docker Hub
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_PASS }}
 
+      # 3️⃣ Build Docker Image
       - name: Build Docker Image
         run: |
-          docker build \
+          docker build --pull \
             --build-arg RESEND_API_KEY=${{ secrets.RESEND_API_KEY }} \
             -t glanzfluss/glanzfluss:latest .
 
+      # 4️⃣ Push Image to Docker Hub
       - name: Push Image
         run: docker push glanzfluss/glanzfluss:latest
 
+      # 5️⃣ Deploy to VPS
       - name: Deploy to VPS
         uses: appleboy/ssh-action@v0.1.10
         with:
@@ -42,4 +43,4 @@ jobs:
           script: |
             cd /var/www/glanzfluss
             docker-compose pull
-            docker-compose up -d --force-recreate
+            RESEND_API_KEY=${{ secrets.RESEND_API_KEY }} docker-compose up -d --force-recreate
