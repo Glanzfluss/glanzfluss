@@ -43,9 +43,9 @@ jobs:
           script: |
             cd /var/www/glanzfluss
             docker-compose pull
-            RESEND_API_KEY=${{ secrets.RESEND_API_KEY }} \
-            POCKETBASE_ADMIN_EMAIL=${{ secrets.POCKETBASE_ADMIN_EMAIL }} \
-            POCKETBASE_ADMIN_PASSWORD=${{ secrets.POCKETBASE_ADMIN_PASSWORD }} \
-            POCKETBASE_URL=${{ secrets.POCKETBASE_URL }} \
-            NEXT_PUBLIC_GEOAPIFY_API_KEY=${{ secrets.NEXT_PUBLIC_GEOAPIFY_API_KEY }} \
+            export RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}
+            export POCKETBASE_ADMIN_EMAIL=${{ secrets.POCKETBASE_ADMIN_EMAIL }}
+            export POCKETBASE_ADMIN_PASSWORD=${{ secrets.POCKETBASE_ADMIN_PASSWORD }}
+            export POCKETBASE_URL=${{ secrets.POCKETBASE_URL }}
+            export NEXT_PUBLIC_GEOAPIFY_API_KEY=${{ secrets.NEXT_PUBLIC_GEOAPIFY_API_KEY }}
             docker-compose up -d --force-recreate
