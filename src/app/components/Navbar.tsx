@@ -42,7 +42,7 @@ export default function Navbar() {
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.navContent}>
         {/*<Link href="/" className={styles.logo}>Glanzfluss</Link>*/}
-        <Link href="/" className={styles.logo}><img src="pictures/LogoTransparentMitText.png" style={{ width: "140px", height: "auto"}} /></Link>
+        <Link href="/" className={styles.logo}><img src="pictures/LogoTransparentMitText.WebP" style={{ width: "140px", height: "auto"}} /></Link>
 
         {/* Desktop Links */}
         <ul className={styles.navLinks}>

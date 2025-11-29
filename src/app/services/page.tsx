@@ -100,7 +100,7 @@ const ServicesPage = () => {
 
         {/* HERO */}
         {/*<section className="relative flex flex-col items-center justify-center text-center pt-40 pb-28 px-6 bg-gradient-to-b from-black via-gray-900 to-gray-800">*/}
-        <section className="relative flex flex-col items-center justify-center text-center pt-40 pb-28 px-6 bg-cover bg-center" style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('pictures/GFWebImage4.png')`}} >
+        <section className="relative flex flex-col items-center justify-center text-center pt-40 pb-28 px-6 bg-cover bg-center" style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('pictures/GFWebImage4.WebP')`}} >
 
           <h1 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
             Unsere <span className={TEXT}>Leistungen</span>
@@ -146,7 +146,7 @@ const ServicesPage = () => {
         <section
           className="relative max-w-6xl mx-auto my-20 rounded-2xl overflow-hidden bg-cover bg-center bg-fixed px-4 md:px-8 py-16"
           style={{
-            backgroundImage: `url('pictures/Windschutzscheibe_gefroren.jpg')`
+            backgroundImage: `url('pictures/Windschutzscheibe_gefroren.WebP')`
           }}
         >
 

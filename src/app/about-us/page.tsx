@@ -70,7 +70,7 @@ const AboutPage = () => {
 
         {/* HERO */}
         {/*<section className="relative flex flex-col items-center justify-center text-center pt-40 pb-28 px-6 bg-gradient-to-b from-black via-gray-900 to-gray-800">*/}
-        <section className="relative flex flex-col items-center justify-center text-center pt-40 pb-28 px-6 bg-cover bg-center" style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('pictures/GFWebImage8.png')`}} >
+        <section className="relative flex flex-col items-center justify-center text-center pt-40 pb-28 px-6 bg-cover bg-center" style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('pictures/GFWebImage8.WebP')`}} >
           <h1 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
             Über <span className={TEXT}>Glanzfluss</span>
           </h1>
@@ -181,7 +181,7 @@ const AboutPage = () => {
             <div className="relative inline-block mb-8">
               <div className="absolute inset-0 bg-[#a3e635] rounded-full blur-2xl opacity-20"></div>
               <img
-                src="/pictures/Vorstellungsbild.jpg"
+                src="/pictures/Vorstellungsbild.WebP"
                 alt="Philipp Dierkes"
                 className="relative w-44 h-44 md:w-56 md:h-56 rounded-full object-cover border border-gray-700 shadow-2xl z-10"
               />
