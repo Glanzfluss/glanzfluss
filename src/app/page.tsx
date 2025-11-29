@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Mobile Test Car Detailing Warburg | Glanzfluss Autopflege vor Ort",
+  title: "Mobile Car Detailing Warburg | Glanzfluss Autopflege vor Ort",
   description:
     "Glanzfluss bietet professionelle mobile Autopflege in Warburg und Umgebung. Innen- & Außenreinigung, Politur und Lackschutz direkt bei dir zuhause oder am Arbeitsplatz.",
   keywords: [
