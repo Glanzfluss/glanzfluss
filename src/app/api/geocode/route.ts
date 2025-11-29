@@ -1,20 +1,33 @@
-// pages/api/geocode.ts
-import type { NextApiRequest, NextApiResponse } from "next";
+import { NextResponse } from "next/server";
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { text } = req.query;
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const text = searchParams.get("text");
 
-  if (!text || typeof text !== "string") {
-    return res.status(400).json({ error: "Missing text query parameter" });
+  if (!text) {
+    return NextResponse.json({ error: "Missing text parameter" }, { status: 400 });
   }
 
-  const key = process.env.GEOAPIFY_API_KEY;
-  try {
-    const response = await fetch(`https://api.geoapify.com/v1/geocode/autocomplete?text=${encodeURIComponent(text)}&limit=5&lang=de&country=de&apiKey=${key}`);
-    const data = await response.json();
-    res.status(200).json(data);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Geoapify request failed" });
+  // WICHTIG: Next.js liest nur env-Variablen OHNE "NEXT_PUBLIC_" auf dem Server
+  const API_KEY = process.env.GEOAPIFY_API_KEY;
+
+  if (!API_KEY) {
+    console.error("❌ GEOAPIFY_API_KEY is missing on server!");
+    return NextResponse.json({ error: "Missing GEOAPIFY_API_KEY" }, { status: 500 });
   }
+
+  const url =
+    `https://api.geoapify.com/v1/geocode/autocomplete?` +
+    `text=${encodeURIComponent(text)}` +
+    `&limit=5&lang=de&country=de&apiKey=${API_KEY}`;
+
+  const geoRes = await fetch(url);
+
+  if (!geoRes.ok) {
+    console.error("Geoapify Error:", await geoRes.text());
+    return NextResponse.json({ error: "Geoapify request failed" }, { status: 500 });
+  }
+
+  const data = await geoRes.json();
+  return NextResponse.json(data);
 }
